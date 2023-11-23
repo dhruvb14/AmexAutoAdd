@@ -23,14 +23,20 @@ async function addCurrentlyVisibleOffersToCard() {
         setTimeout(function () {
             console.log("Lets look for and all all visible offers");
             var buttons = document.querySelectorAll('button.offer-cta:not([href])');
+            var offersRemainingToAdd = 0;
             for (var i = 0; i < buttons.length; i++) {
                 (function (i) {
                     setTimeout(function () {
                         buttons[i].click();
+                        console.log("Successfully added offer " + i+1)
+                        offersRemainingToAdd++;
                     }, i * randomTimeBetweenClicks());
                 })(i);
             }
-            console.log("Added all visible offers");
+            while(buttons.length !== offersRemainingToAdd){
+                console.log(`Offers remaining to add ${buttons.length + 1 - offersRemainingToAdd}`)
+            }
+            console.log(`Adding ${buttons.length} offers, `);
         }, 10000);
     })(i);
 
@@ -41,7 +47,13 @@ function randomTimeBetweenClicks() {
     const val = Math.floor(1000 + Math.random() * 5000);
     return val;
 }
-
+function howManyOffersFound() {
+    var eligible = document.getElementById("ELIGIBLE");
+    var innerText = eligible.innerHTML;
+    var count = innerText.match(/\d+/)[0];
+    console.log(`${count} remaining offers found on this page`)
+    return count;
+}
 function howManyRemainingOffers() {
     var eligible = document.getElementById("ELIGIBLE");
     var innerText = eligible.innerHTML;
