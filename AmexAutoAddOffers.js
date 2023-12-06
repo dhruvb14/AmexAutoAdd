@@ -22,7 +22,8 @@ async function navigateToOffers() {
 async function navigateToHomepage() {
     var homepage = document.querySelector('a[title="Home"]');
     homepage.click();
-    await new Promise(r => setTimeout(r, 5000));
+    console.log("Waiting for 10 seconds for homepage to load");
+    await new Promise(r => setTimeout(r, 10000));
 }
 
 async function addCurrentlyVisibleOffersToCard() {
