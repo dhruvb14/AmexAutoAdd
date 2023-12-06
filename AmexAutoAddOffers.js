@@ -44,7 +44,7 @@ async function addCurrentlyVisibleOffersToCard() {
                     }, i * 2000);
                 })(i);
             }
-            console.log(`Adding ${buttons.length} offers, `);
+            console.log(`Adding ${buttons.length} offers`);
         }, 10000);
     })(i);
 
