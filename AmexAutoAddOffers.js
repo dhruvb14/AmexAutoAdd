@@ -41,7 +41,7 @@ async function addCurrentlyVisibleOffersToCard() {
                         buttons[i].click();
                         console.log(`Successfully added offer ${i+1} of ${buttons.length}\n\n${buttons.length - offersRemainingToAdd} offer remaining to add`)
                         offersRemainingToAdd++;
-                    }, 2000);
+                    }, i * 2000);
                 })(i);
             }
             console.log(`Adding ${buttons.length} offers, `);
