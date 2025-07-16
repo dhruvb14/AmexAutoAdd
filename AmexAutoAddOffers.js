@@ -33,7 +33,7 @@ async function addCurrentlyVisibleOffersToCard() {
         console.log("Waiting for 10 seconds for offers to load");
         setTimeout(function () {
             console.log("Lets look for and all all visible offers");
-            var buttons = document.querySelectorAll('button.offer-cta:not([href])');
+            var buttons = document.querySelectorAll('button[title="Add to Card"]');
             var offersRemainingToAdd = 1;
             for (var i = 0; i < buttons.length; i++) {
                 (function (i) {
