@@ -27,8 +27,8 @@ async function navigateToHomepage() {
 }
 
 async function addCurrentlyVisibleOffersToCard() {
-    await navigateToHomepage();
-    await navigateToOffers();
+    // await navigateToHomepage();
+    // await navigateToOffers();
     (function (i) {
         console.log("Waiting for 10 seconds for offers to load");
         setTimeout(function () {
