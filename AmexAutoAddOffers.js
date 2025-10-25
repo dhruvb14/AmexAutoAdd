@@ -27,13 +27,12 @@ async function navigateToHomepage() {
 }
 
 async function addCurrentlyVisibleOffersToCard() {
-    // await navigateToHomepage();
-    // await navigateToOffers();
     (function (i) {
-        console.log("Waiting for 10 seconds for offers to load");
+        console.log("Waiting for 5 seconds for offers to load");
         setTimeout(function () {
             console.log("Lets look for and all all visible offers");
-            var buttons = document.querySelectorAll('button[title="Add to Card"]');
+            var buttons = document.querySelectorAll('button[title="add to list card"]');
+            
             var offersRemainingToAdd = 1;
             for (var i = 0; i < buttons.length; i++) {
                 (function (i) {
@@ -45,7 +44,7 @@ async function addCurrentlyVisibleOffersToCard() {
                 })(i);
             }
             console.log(`Adding ${buttons.length} offers`);
-        }, 10000);
+        }, 5000);
     })(i);
 
 
@@ -68,26 +67,6 @@ function addButtons() {
     button.style.width = "200px";
     button.innerHTML = "Add All Offers";
     button.onclick = addCurrentlyVisibleOffersToCard;
-    document.body.appendChild(button);
-
-    button = document.createElement("button");
-    button.classList.add("btn", "btn-icon", "btn-sm", "icon-hover", "aa-chat-pill");
-    button.style.position = "fixed";
-    button.style.bottom = "60px";
-    button.style.left = "20px";
-    button.style.width = "200px";
-    button.innerHTML = "Select Gold Card";
-    button.onclick = selectGoldCard;
-    document.body.appendChild(button);
-
-    button = document.createElement("button");
-    button.classList.add("btn", "btn-icon", "btn-sm", "icon-hover", "aa-chat-pill");
-    button.style.position = "fixed";
-    button.style.bottom = "100px";
-    button.style.left = "20px";
-    button.style.width = "200px";
-    button.innerHTML = "Select Platinum Card";
-    button.onclick = selectPlatinumCard;
     document.body.appendChild(button);
 }
 addButtons();
